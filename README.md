@@ -28,7 +28,7 @@ if __name__ == "__main__":
     widget = MainWindow()
     window = ShadowFrame(widget)
     window.show()
-    app.exec_()
+    app.exec()
 ```
 
 Result
