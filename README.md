@@ -1,5 +1,5 @@
 # pyqt-shadow-frame-window-example
-PyQt shadow frame window example
+PyQt shadow(+rounded) frame window example
 
 Show the slight shadow around the window's border.
 
