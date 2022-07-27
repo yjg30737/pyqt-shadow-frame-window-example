@@ -4,6 +4,7 @@ PyQt shadow frame window example
 Show the slight shadow around the window's border.
 
 == 2022-07-27 ==
+
 From v0.0.2, window's edges are rounded.
 
 Should've changed the name as pyqt-shadow-rounded-frame-window or something but i'm kinda lazy so whatever.
@@ -34,3 +35,4 @@ Result
 
 ![image](https://user-images.githubusercontent.com/55078043/181148746-f65b0b34-8aed-443f-bf15-c1604d450dc1.png)
 
+Inspired by Windows 11 GUI.
