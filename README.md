@@ -16,7 +16,7 @@ Should've changed the name as pyqt-shadow-rounded-frame-window or something but 
 From v0.0.3, window can be resized and moved by inheriting FramelessWindow in <a href="https://github.com/yjg30737/pyqt-frameless-window.git">pyqt-frameless-window</a>.
 
 ## Requirements
-* PyQt5 >= 5.8
+* PyQt5 >= 5.15
 
 ## Setup
 `python -m pip install git+https://github.com/yjg30737/pyqt-shadow-frame-window-example.git --upgrade`
