@@ -1,5 +1,7 @@
 # pyqt-shadow-frame-window-example
-PyQt shadow(+rounded) frame window example
+PyQt shadow(+rounded) frame window example.
+
+You can move and resize this.
 
 Show the slight shadow around the window's border.
 
@@ -9,11 +11,18 @@ From v0.0.2, window's edges are rounded.
 
 Should've changed the name as pyqt-shadow-rounded-frame-window or something but i'm kinda lazy so whatever.
 
+== 2022-08-06 ==
+
+From v0.0.3, window can be resized and moved by inheriting FramelessWindow in <a href="https://github.com/yjg30737/pyqt-frameless-window.git">pyqt-frameless-window</a>.
+
 ## Requirements
 * PyQt5 >= 5.8
 
 ## Setup
 `python -m pip install git+https://github.com/yjg30737/pyqt-shadow-frame-window-example.git --upgrade`
+
+## Included Package
+* <a href="https://github.com/yjg30737/pyqt-frameless-window.git">pyqt-frameless-window</a>
 
 ## Example
 Code Sample
