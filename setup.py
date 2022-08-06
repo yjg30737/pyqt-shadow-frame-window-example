@@ -10,6 +10,7 @@ setup(
     description='PyQt shadow(+rounded) frame window example',
     url='https://github.com/yjg30737/pyqt-shadow-frame-window-example.git',
     install_requires=[
-        'PyQt5>=5.8'
+        'PyQt5>=5.8',
+        'pyqt-frameless-window>=0.0.1'
     ]
 )

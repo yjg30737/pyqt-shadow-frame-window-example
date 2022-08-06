@@ -1,11 +1,13 @@
 from PyQt5.QtCore import Qt, QRectF, QMargins
-from PyQt5.QtGui import QColor, QPainter, QPainterPath, QBrush, QPen, QRegion, QPalette
+from PyQt5.QtGui import QColor, QPainter, QPainterPath, QBrush, QPen
 from PyQt5.QtWidgets import QWidget, QMainWindow, QApplication, QGraphicsDropShadowEffect, QGridLayout, QLabel, \
     QTextEdit, QVBoxLayout
+from pyqt_frameless_window import FramelessWindow
 
 
 # shadow + rounded frame
-class ShadowFrame(QWidget):
+# inherits FramelessWindow for resizing and moving feature
+class ShadowFrame(FramelessWindow):
     def __init__(self, main_window):
         super().__init__()
         # main_window is main widget to show
@@ -20,7 +22,7 @@ class ShadowFrame(QWidget):
 
         # set the shadow
         self.__effect = QGraphicsDropShadowEffect()
-        self.__effect.setBlurRadius(12.0)
+        self.__effect.setBlurRadius(6.0)
         self.__effect.setColor(QColor(0, 0, 0, 127))
         self.__effect.setOffset(0.0)
         self.setGraphicsEffect(self.__effect)
@@ -28,6 +30,9 @@ class ShadowFrame(QWidget):
         lay = QGridLayout()
         lay.addWidget(self.__main_window)
         self.setLayout(lay)
+
+        # make it able to move
+        self.setPressToMove(True)
 
     def paintEvent(self, e):
         painter = QPainter(self)
@@ -41,7 +46,7 @@ class ShadowFrame(QWidget):
         path = QPainterPath()
         rect = self.rect()
         # set margin to each direction for giving the space to show shadow
-        rect = rect.marginsRemoved(QMargins(5, 5, 5, 5))
+        rect = rect.marginsRemoved(QMargins(4, 4, 4, 4))
         # rounded corner's radius
         radius = 12.0
         path.addRoundedRect(QRectF(rect), radius, radius)
