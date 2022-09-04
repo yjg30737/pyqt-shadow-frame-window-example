@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pyqt-shadow-frame-window-example',
-    version='0.0.3',
+    version='0.0.31',
     author='Jung Gyu Yoon',
     author_email='yjg30737@gmail.com',
     license='MIT',
