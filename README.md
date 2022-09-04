@@ -15,6 +15,10 @@ Should've changed the name as pyqt-shadow-rounded-frame-window or something but 
 
 From v0.0.3, window can be resized and moved by inheriting FramelessWindow in <a href="https://github.com/yjg30737/pyqt-frameless-window.git">pyqt-frameless-window</a>.
 
+== 2022-09-04 ==
+
+From v0.0.31(don't care about the version policy, just want to slow down), window's shadow and border disappear when window is full screen or maximized. They will reappear when window is back to normal.
+
 ## Requirements
 * PyQt5 >= 5.15
 
