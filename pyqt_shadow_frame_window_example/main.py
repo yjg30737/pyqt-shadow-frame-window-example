@@ -95,14 +95,3 @@ class MainWindow(QMainWindow):
         mainWidget = QWidget()
         mainWidget.setLayout(lay)
         self.setCentralWidget(mainWidget)
-
-
-if __name__ == "__main__":
-    import sys
-
-    app = QApplication(sys.argv)
-    widget = MainWindow()
-    # put inside the shadow(+rounded) frame
-    window = ShadowFrame(widget)
-    window.show()
-    app.exec_()
