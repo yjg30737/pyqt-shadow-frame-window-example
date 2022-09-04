@@ -52,10 +52,10 @@ class ShadowFrame(FramelessWindow):
     def event(self, e):
         if e.type() == 105:
             windowState = int(self.windowState())
-            self.toggleShadowBorder(not (windowState == 2 or windowState == 4))
+            self.__toggleShadowBorder(not (windowState == 2 or windowState == 4))
         return super().event(e)
 
-    def toggleShadowBorder(self, f: bool):
+    def __toggleShadowBorder(self, f: bool):
         if f:
             self.__shadowBlurRadius = 6.0
             self.__borderWidth = 1
