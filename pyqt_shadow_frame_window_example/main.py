@@ -20,13 +20,6 @@ class ShadowFrame(FramelessWindow):
         # make basic background(which is dark) invisible to show shadow
         self.setAttribute(Qt.WA_TranslucentBackground)
 
-        # set the shadow
-        self.__effect = QGraphicsDropShadowEffect()
-        self.__effect.setBlurRadius(6.0)
-        self.__effect.setColor(QColor(0, 0, 0, 127))
-        self.__effect.setOffset(0.0)
-        self.setGraphicsEffect(self.__effect)
-
         lay = QGridLayout()
         lay.addWidget(self.__main_window)
         self.setLayout(lay)
@@ -37,7 +30,7 @@ class ShadowFrame(FramelessWindow):
     def paintEvent(self, e):
         painter = QPainter(self)
         # set the background and pen (looks like Windows 11 default window)
-        pen = QPen(QColor(Qt.gray), 1)
+        pen = QPen(QColor(Qt.gray), self.__borderWidth)
         brush = QBrush(QColor(241, 241, 241, 255))
         painter.setPen(pen)
         painter.setBrush(brush)
@@ -46,15 +39,42 @@ class ShadowFrame(FramelessWindow):
         path = QPainterPath()
         rect = self.rect()
         # set margin to each direction for giving the space to show shadow
-        rect = rect.marginsRemoved(QMargins(4, 4, 4, 4))
+        rect = rect.marginsRemoved(QMargins(self.__shadowMargin, self.__shadowMargin,
+                                            self.__shadowMargin, self.__shadowMargin))
         # rounded corner's radius
-        radius = 12.0
-        path.addRoundedRect(QRectF(rect), radius, radius)
+        path.addRoundedRect(QRectF(rect), self.__borderRadius, self.__borderRadius)
         # set antialiasing to enhance quality of window
         painter.setRenderHints(QPainter.Antialiasing)
         painter.drawPath(path)
 
         return super().paintEvent(e)
+
+    def event(self, e):
+        if e.type() == 105:
+            windowState = int(self.windowState())
+            self.toggleShadowBorder(not (windowState == 2 or windowState == 4))
+        return super().event(e)
+
+    def toggleShadowBorder(self, f: bool):
+        if f:
+            self.__shadowBlurRadius = 6.0
+            self.__borderWidth = 1
+            self.__shadowMargin = self._margin
+            self.__borderRadius = 12.0
+        else:
+            self.__shadowBlurRadius = 0
+            self.__borderWidth = 0
+            self.__shadowMargin = 0
+            self.__borderRadius = 0
+
+        # set the shadow
+        self.__effect = QGraphicsDropShadowEffect()
+        self.__effect.setBlurRadius(self.__shadowBlurRadius)
+        self.__effect.setColor(QColor(0, 0, 0, 127))
+        self.__effect.setOffset(0.0)
+        self.setGraphicsEffect(self.__effect)
+
+        self.repaint()
 
 
 # sample widget to put inside the shadow(+rounded) frame
