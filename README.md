@@ -26,7 +26,7 @@ From v0.0.31(don't care about the version policy, just want to slow down), windo
 `python -m pip install git+https://github.com/yjg30737/pyqt-shadow-frame-window-example.git --upgrade`
 
 ## Included Package
-* <a href="https://pypi.org/project/pyqt-frameless-window/0.0.61/">pyqt-frameless-window (v0.0.61)</a>
+* <a href="https://pypi.org/project/pyqt-frameless-window/0.0.61/">pyqt-frameless-window (v0.0.61, Legacy)</a>
 
 ## Example
 Code Sample
