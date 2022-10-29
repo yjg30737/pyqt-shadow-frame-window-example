@@ -13,7 +13,7 @@ Should've changed the name as pyqt-shadow-rounded-frame-window or something but 
 
 == 2022-08-06 ==
 
-From v0.0.3, window can be resized and moved by inheriting FramelessWindow in <a href="https://github.com/yjg30737/pyqt-frameless-window.git">pyqt-frameless-window</a>.
+From v0.0.3, window can be resized and moved by inheriting FramelessWindow in pyqt-frameless-window.
 
 == 2022-09-04 ==
 
